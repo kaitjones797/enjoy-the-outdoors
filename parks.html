@@ -4,8 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parks</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
   </head>
   <body>
+    <form>
+      <label for="locationSelect">States and Territories</label>
+      <select id="locationSelect">
+      <option value="">Select...</option>
+    </select>
+    </form>
     <header>National Park List</header>
     <main>
       <h3>National Park Search</h3>
@@ -20,10 +28,6 @@
             <th>Zip Code</th>
             <th>Phone</th>
             <th>Visit</th>
-            <th>Fax</th>
-            <th>Lattitude</th>
-            <th>Longitude</th>
-            <th>Location</th>
           </tr>
         </thead>
         <tbody id="nationalParkTableBody"></tbody>
