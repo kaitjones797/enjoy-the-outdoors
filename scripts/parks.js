@@ -60,7 +60,13 @@ loadNationalParkTable();
 const parkTypeSelect = document.getElementById("parkTypeSelect");
 
 function loadParkTypeList() {
-  for (const iterator of object) {
+  for (const types of parkTypesArray) {
+    let option = document.createElement("option")
+    option.value = types;
+    option.innerText = types;
+    parkTypeSelect.appendChild(option);
     
   }
 }
+loadParkTypeList();
+

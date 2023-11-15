@@ -8,38 +8,41 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
   </head>
   <body>
-    <form>
-      <label for="locationSelect">Location</label>
-      <select id="locationSelect">
-      <option value="">Select...</option>
-    </select>
-    </form>
-
-    <form>
-      <label for="parkTypeSelect"> Type</label>
-      <select id="parkTypeSelect>
-      <option value="">Select...</option>
-
-      </select>
-
-    </form>
     <main>
-      <h3>National Park Search</h3>
-      <table id="nationalParkTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip Code</th>
-            <th>Phone</th>
-            <th>Visit</th>
-          </tr>
-        </thead>
-        <tbody id="nationalParkTableBody"></tbody>
-      </table>
+      <article>
+        <input name="radio" type="radio" id="locationRadioBtn" />
+        <label for="locationRadioBtn">By Location</label>
+
+        <input name="radio" type="radio" id="typeRadioBtn" />
+        <label for="typeRadioBtn">By Type</label>
+
+        <input name="radio" type="radio" id="allRadioBtn" />
+        <label for="allRadioBtn">All</label>
+
+        <select id="locationSelect">
+          <option value="">Select by State...</option>
+        </select>
+
+        <select id="parkTypeSelect">
+          <option value="">Select by Type...</option>
+        </select>
+        <h3>National Park Search</h3>
+        <table id="nationalParkTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip Code</th>
+              <th>Phone</th>
+              <th>Visit</th>
+            </tr>
+          </thead>
+          <tbody id="nationalParkTableBody"></tbody>
+        </table>
+      </article>
     </main>
     <footer></footer>
     <script src="scripts/locationData.js"></script>
