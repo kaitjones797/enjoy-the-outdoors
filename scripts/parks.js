@@ -55,3 +55,12 @@ function loadNationalParkTable() {
 
 }
 loadNationalParkTable();
+
+
+const parkTypeSelect = document.getElementById("parkTypeSelect");
+
+function loadParkTypeList() {
+  for (const iterator of object) {
+    
+  }
+}
