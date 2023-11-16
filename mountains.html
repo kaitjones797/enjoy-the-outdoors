@@ -3,11 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parks</title>
+    <title>Mountains</title>
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <header>
+      <div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="parks.html">Parks</a>
+          <a href="mountains.html">Mountains</a>
+          
+        </nav>
+      </div>
+    </header>
+    
+    <main>
+      <form>
+        <label for="">Choose Mountain</label>
+        <select id="mountainList">
+          <option value="">Select...</option>
+        </select>
+      </form>
+      <article id="articleStyle" style="display: none">
+        <table class="grid" id="mountainTable" style="display: none">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Elevation</th>
+              <th scope="col">Effort</th>
+              <th scope="col">Image</th>
+              <th scope="col">Description</th>
+              <th scope="col">Lattitude</th>
+              <th scope="col">Longitude</th>
+            </tr>
+          </thead>
+          <tbody scope="row" id="mountainTableBody"></tbody>
+        </table>
+
+        <div id="imageMountain" style="display: none"></div>
+      </article>
+
+
+    </main>
     <footer></footer>
 
     <script src="scripts/mountainData.js"></script>
