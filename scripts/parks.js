@@ -29,7 +29,88 @@ function loadStatesList() {
 
 loadStatesList();
 
-function loadNationalParkTable(park) {
+function loadNationalParkTableStates() {
+  for (const park of nationalParksArray) {
+    if (park.State == locationSelect.value) {
+      let row = nationalParkTableBody.insertRow(-1);
+      let cell1 = row.insertCell(0);
+      cell1.innerText = park.LocationID;
+
+      let cell2 = row.insertCell(1);
+      cell2.innerText = park.LocationName;
+
+      let cell3 = row.insertCell(2);
+      cell3.innerText = park.Address;
+
+      let cell4 = row.insertCell(3);
+      cell4.innerText = park.City;
+
+      let cell5 = row.insertCell(4);
+      cell5.innerText = park.State;
+
+      let cell6 = row.insertCell(5);
+      cell6.innerText = park.ZipCode;
+
+      let cell7 = row.insertCell(6);
+      cell7.innerText = park.Phone;
+
+      let cell8 = row.insertCell(7);
+      if (park.Visit) {
+        var link = document.createElement("a");
+
+        link.href = park.Visit;
+        link.innerText = park.LocationName;
+        cell8.appendChild(link);
+      }
+    }
+  }
+}
+function sortTableContent() {
+  const selectedState = parkTypeSelect.value;
+  const selectedType = parkTypesArray.find((type) => selectedState.includes(type));
+  for (const park of nationalParksArray) {
+    const islandState = selectedState == "Rhode Island" || selectedState == "Virgin Islands";
+
+    if (park.State == selectedState || (park.LocationName.includes(selectedType) && !islandState)) {
+      loadNationalParkTableTypes(park);
+    }
+  }
+}
+
+function loadNationalParkTableTypes(park) {
+  let row = nationalParkTableBody.insertRow(-1);
+  let cell1 = row.insertCell(0);
+  cell1.innerText = park.LocationID;
+
+  let cell2 = row.insertCell(1);
+  cell2.innerText = park.LocationName;
+
+  let cell3 = row.insertCell(2);
+  cell3.innerText = park.Address;
+
+  let cell4 = row.insertCell(3);
+  cell4.innerText = park.City;
+
+  let cell5 = row.insertCell(4);
+  cell5.innerText = park.State;
+
+  let cell6 = row.insertCell(5);
+  cell6.innerText = park.ZipCode;
+
+  let cell7 = row.insertCell(6);
+  cell7.innerText = park.Phone;
+
+  let cell8 = row.insertCell(7);
+  if (park.Visit) {
+    var link = document.createElement("a");
+
+    link.href = park.Visit;
+    link.innerText = park.LocationName;
+    cell8.appendChild(link);
+  }
+}
+
+function loadNationalParkTableAll() {
   for (const park of nationalParksArray) {
     let row = nationalParkTableBody.insertRow(-1);
     let cell1 = row.insertCell(0);
@@ -61,9 +142,6 @@ function loadNationalParkTable(park) {
       link.innerText = park.LocationName;
       cell8.appendChild(link);
     }
-
-    // let cell8 = row.insertCell(7);
-    // cell8.innerText = parks.Visit;
   }
 }
 
@@ -85,26 +163,13 @@ function loadParkTypeList() {
   }
 }
 
-function sortTableContent() {
-  const selectedState = locationSelect.value;
-  const selectedType = parkTypesArray.find((type) => selectedState.includes(type));
-  for (const park of nationalParksArray) {
-    const islandState = selectedState == "Rhode Island" || selectedState == "Virgin Islands";
-
-    if (park.State == selectedState || (park.LocationName.includes(selectedType) && !islandState)) {
-      loadNationalParkTable(park)
-    }
-  }
-}
-
 locationRadioBtn.onclick = loadStatesList;
 typeRadioBtn.onclick = loadParkTypeList;
 allRadioBtn.onclick = function () {
   parkTypeSelect.style.display = "none";
   locationSelect.style.display = "none";
-  loadNationalParkTable();
+  loadNationalParkTableAll();
 };
 
-
-locationSelect.onchange = sortTableContent;
+locationSelect.onchange = loadNationalParkTableStates;
 parkTypeSelect.onchange = sortTableContent;
